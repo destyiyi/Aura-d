@@ -8,11 +8,11 @@
     /* Reset dan base styling */
     * {
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif; /* Font berbeda untuk membedakan */
+      font-family: 'Roboto', sans-serif;
     }
     body {
       margin: 0;
-      background: linear-gradient(135deg, #cce4f7 0%, #a8d8ea 100%); /* Gradien soft blue yang berbeda */
+      background: linear-gradient(135deg, #cce4f7 0%, #a8d8ea 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,27 +21,27 @@
       color: #1a2e5b;
     }
     .app-container {
-      background: #f0f8ff; /* Latar putih kebiruan */
-      border-radius: 25px; /* Radius lebih besar untuk kesan berbeda */
+      background: #f0f8ff;
+      border-radius: 25px;
       width: 100%;
-      max-width: 480px; /* Lebar sedikit lebih besar */
+      max-width: 480px;
       padding: 20px;
-      box-shadow: 0 10px 30px rgba(26, 46, 91, 0.2); /* Bayangan lebih dramatis */
+      box-shadow: 0 10px 30px rgba(26, 46, 91, 0.2);
       color: #1a2e5b;
-      border: 2px solid #b3d9ff; /* Border halus untuk membedakan */
+      border: 2px solid #b3d9ff;
     }
     /* Header */
     header {
       text-align: center;
       padding: 25px 20px;
-      background: linear-gradient(135deg, #5a81d1 0%, #7ba3d1 100%); /* Gradien header berbeda */
+      background: linear-gradient(135deg, #5a81d1 0%, #7ba3d1 100%);
       border-radius: 20px;
       color: white;
       margin-bottom: 20px;
       position: relative;
     }
     header::before {
-      content: "📐"; /* Ikon geometri sebagai aksen */
+      content: "📐";
       font-size: 3rem;
       position: absolute;
       top: -15px;
@@ -61,7 +61,7 @@
       font-size: 1.7rem;
       margin: 0 0 10px;
       line-height: 1.2;
-      margin-top: 20px; /* Geser karena ada ikon */
+      margin-top: 20px;
     }
     header p {
       font-weight: 500;
@@ -69,53 +69,52 @@
       margin: 0;
       opacity: 0.9;
     }
-    /* Menu buttons container - sekarang vertikal */
+    /* Menu buttons container */
     .menu {
       display: flex;
-      flex-direction: column; /* Baris vertikal untuk tampilan berbeda */
+      flex-direction: column;
       gap: 15px;
-      background-color: #e6f7ff; /* Latar menu berbeda */
+      background-color: #e6f7ff;
       border-radius: 18px;
       margin: 20px 0;
       padding: 20px;
-      box-shadow: inset 0 0 15px rgba(90, 129, 209, 0.1); /* Bayangan dalam */
+      box-shadow: inset 0 0 15px rgba(90, 129, 209, 0.1);
     }
     .menu button {
       border: none;
-      border-radius: 25px; /* Radius lebih besar */
+      border-radius: 25px;
       cursor: pointer;
       font-weight: 600;
-      font-size: 1rem; /* Ukuran font lebih besar */
+      font-size: 1rem;
       padding: 15px 25px;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
       color: white;
-      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animasi hover berbeda */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       user-select: none;
       box-shadow: 0 4px 12px rgba(90, 129, 209, 0.3);
-      width: 100%; /* Lebar penuh */
+      width: 100%;
     }
     .menu button:focus-visible {
       outline-offset: 3px;
       outline: 2px solid #2c539e;
     }
     .menu button:hover {
-      transform: translateY(-3px); /* Efek lift */
+      transform: translateY(-3px);
       box-shadow: 0 6px 18px rgba(90, 129, 209, 0.4);
     }
-    /* Warna pastel untuk tombol */
     .btn-materi {
-      background-color: #AEC6CF; /* Pastel blue */
+      background-color: #AEC6CF;
     }
     .btn-soal {
-      background-color: #C1E1C1; /* Pastel green */
+      background-color: #C1E1C1;
     }
     .btn-simulator {
-      background-color: #D4A5F8; /* Pastel purple - berbeda dari sebelumnya */
+      background-color: #D4A5F8;
     }
-    /* Konten utama */
+    /* Konten utama - hidden by default */
     .content {
       background: #ffffff;
       border-radius: 20px;
@@ -123,7 +122,11 @@
       padding: 30px 25px;
       box-shadow: 0 5px 20px rgba(74, 116, 217, 0.3);
       color: #1a2e5b;
-      border-left: 5px solid #5a81d1; /* Border kiri untuk aksen */
+      border-left: 5px solid #5a81d1;
+      display: none; /* Hidden by default */
+    }
+    .content.show {
+      display: block; /* Show when active */
     }
     .content h2 {
       font-size: 1.6rem;
@@ -138,7 +141,7 @@
       font-size: 1.8rem;
     }
     .definition-box {
-      background: linear-gradient(135deg, #eff6ff 0%, #d4e4f7 100%); /* Gradien berbeda */
+      background: linear-gradient(135deg, #eff6ff 0%, #d4e4f7 100%);
       border-radius: 16px;
       padding: 20px 26px;
       font-size: 1rem;
@@ -150,11 +153,10 @@
       user-select: text;
       white-space: pre-line;
       font-family: 'Courier New', Courier, monospace;
-      border: 1px solid #b3d9ff; /* Border tipis */
+      border: 1px solid #b3d9ff;
     }
-    /* Contoh barisan */
     .example-barisan {
-      background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 100%); /* Gradien berbeda */
+      background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 100%);
       padding: 20px 24px;
       border-radius: 16px;
       box-shadow: 0 4px 15px rgba(74, 116, 217, 0.3);
@@ -182,6 +184,46 @@
       color: #4a74d9;
       user-select: none;
     }
+    /* Simulasi */
+    .simulation {
+      background: #f9f9ff;
+      border-radius: 16px;
+      padding: 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 15px rgba(74, 116, 217, 0.2);
+      border: 1px solid #d4e4f7;
+    }
+    .simulation h3 {
+      color: #4a74d9;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .simulation input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #b3d9ff;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .simulation button {
+      background: #AEC6CF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+    }
+    .simulation button:hover {
+      background: #9bb5c0;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: 700;
+      color: #2c539e;
+    }
     /* Responsive */
     @media (max-width: 480px) {
       .menu button {
@@ -197,7 +239,7 @@
       .example-barisan {
         font-size: 1.1rem;
         gap: 15px;
-        flex-wrap: wrap; /* Wrap untuk layar kecil */
+        flex-wrap: wrap;
       }
       .example-barisan .box {
         padding: 12px 18px;
@@ -214,27 +256,33 @@
     </header>
 
     <nav class="menu" aria-label="Menu utama aplikasi">
-      <button class="btn-materi" aria-label="Menu Materi">
+      <button class="btn-materi" onclick="showContent('materi')" aria-label="Menu Materi">
         📚 Materi
       </button>
-      <button class="btn-soal" aria-label="Menu Contoh Soal">
+      <button class="btn-soal" onclick="showContent('soal')" aria-label="Menu Contoh Soal">
         📝 Contoh Soal
       </button>
-      <button class="btn-simulator" aria-label="Menu Simulator">
+      <button class="btn-simulator" onclick="showContent('simulator')" aria-label="Menu Simulator">
         🎮 Simulator
       </button>
     </nav>
 
-    <section class="content" aria-labelledby="judul-rumus-barisan-geometri">
-      <h2 id="judul-rumus-barisan-geometri"><span>📐</span> Rumus Barisan Geometri</h2>
+    <!-- Konten Materi -->
+    <section id="materi" class="content" aria-labelledby="judul-materi-barisan-geometri">
+      <h2 id="judul-materi-barisan-geometri"><span>📐</span> Materi Barisan Geometri</h2>
 
-      <div class="definition-box" aria-label="Rumus barisan geometri">
-        Un = a × rⁿ⁻¹<br><br>
+      <div class="definition-box">
+        Barisan Geometri adalah barisan bilangan dimana setiap suku berikutnya diperoleh dengan mengalikan suku sebelumnya dengan suatu bilangan tetap yang disebut rasio (r).<br><br>
+        Perbedaan dengan Barisan Aritmatika:<br>
+        - Aritmatika: Selisih tetap (beda).<br>
+        - Geometri: Perkalian tetap (rasio).<br><br>
+        Rumus:<br>
+        Un = a × r^(n-1)<br><br>
         Keterangan:<br>
         Un = Suku ke-n<br>
         a = Suku pertama<br>
-        r = Rasio atau perbandingan tetap antar suku<br>
-        n = Posisi suku ke-n
+        r = Rasio<br>
+        n = Posisi suku
       </div>
 
       <div>
@@ -249,8 +297,69 @@
           <div class="box">24</div>
         </div>
       </div>
+    </section>
 
+    <!-- Konten Contoh Soal -->
+    <section id="soal" class="content" aria-labelledby="judul-contoh-soal">
+      <h2 id="judul-contoh-soal"><span>📝</span> Contoh Soal</h2>
+      <div class="definition-box">
+        1. Tentukan suku ke-5 dari barisan geometri dengan a=2, r=3.<br>
+        Jawab: Un = 2 × 3^(5-1) = 2 × 81 = 162<br><br>
+        2. Jika barisan geometri adalah 4, 12, 36, ..., tentukan r.<br>
+        Jawab: r = 12/4 = 3<br><br>
+        3. Cari suku pertama jika U3=27, r=3.<br>
+        Jawab: a = 27 / 3^(3-1) = 27 / 9 = 3
+      </div>
+    </section>
+
+    <!-- Konten Simulator -->
+    <section id="simulator" class="content" aria-labelledby="judul-simulator">
+      <h2 id="judul-simulator"><span>🎮</span> Simulator Barisan Geometri</h2>
+      <div class="simulation">
+        <h3>Hitung Suku Barisan Geometri</h3>
+        <input type="number" id="a" placeholder="Suku pertama (a)" />
+        <input type="number" id="r" placeholder="Rasio (r)" />
+        <input type="number" id="n" placeholder="Posisi suku (n)" />
+        <button onclick="calculate()">Hitung Un</button>
+        <div class="result" id="result"></div>
+      </div>
     </section>
   </div>
+ <script>
+    function showContent(id) {
+      document.querySelectorAll('.content').forEach(c => c.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
+    }
+
+    function calculate() {
+      const a = parseFloat(document.getElementById('a').value);
+      const r = parseFloat(document.getElementById('r').value);
+      const n = parseInt(document.getElementById('n').value);
+
+      if (isNaN(a) || isNaN(r) || isNaN(n) || n < 1) {
+        document.getElementById('result').innerHTML = "❌ Masukkan nilai yang valid!";
+        return;
+      }
+
+      const un = a * Math.pow(r, n - 1);
+
+      document.getElementById('result').innerHTML = `
+📊 <b>Diketahui:</b><br>
+a = ${a}<br>
+r = ${r}<br>
+n = ${n}<br><br>
+
+🧠 <b>Rumus:</b><br>
+Un = a × r<sup>n-1</sup><br><br>
+
+🔍 <b>Penyelesaian:</b><br>
+U${n} = ${a} × ${r}<sup>${n}-1</sup><br>
+U${n} = ${a} × ${r}<sup>${n-1}</sup><br><br>
+
+🎉 <b>Hasil:</b><br>
+U${n} = <b>${un}</b>
+      `;
+    }
+  </script>
 </body>
 </html>
