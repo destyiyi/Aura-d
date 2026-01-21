@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SMK Muhammadiyah Loa Janan - Barisan Geometri</title>
+  <style>
+    /* Reset dan base styling */
+    * {
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif; /* Font berbeda untuk membedakan */
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #cce4f7 0%, #a8d8ea 100%); /* Gradien soft blue yang berbeda */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      color: #1a2e5b;
+    }
+    .app-container {
+      background: #f0f8ff; /* Latar putih kebiruan */
+      border-radius: 25px; /* Radius lebih besar untuk kesan berbeda */
+      width: 100%;
+      max-width: 480px; /* Lebar sedikit lebih besar */
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(26, 46, 91, 0.2); /* Bayangan lebih dramatis */
+      color: #1a2e5b;
+      border: 2px solid #b3d9ff; /* Border halus untuk membedakan */
+    }
+    /* Header */
+    header {
+      text-align: center;
+      padding: 25px 20px;
+      background: linear-gradient(135deg, #5a81d1 0%, #7ba3d1 100%); /* Gradien header berbeda */
+      border-radius: 20px;
+      color: white;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    header::before {
+      content: "📐"; /* Ikon geometri sebagai aksen */
+      font-size: 3rem;
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      font-weight: 800;
+      font-size: 1.7rem;
+      margin: 0 0 10px;
+      line-height: 1.2;
+      margin-top: 20px; /* Geser karena ada ikon */
+    }
+    header p {
+      font-weight: 500;
+      font-size: 1rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+    /* Menu buttons container - sekarang vertikal */
+    .menu {
+      display: flex;
+      flex-direction: column; /* Baris vertikal untuk tampilan berbeda */
+      gap: 15px;
+      background-color: #e6f7ff; /* Latar menu berbeda */
+      border-radius: 18px;
+      margin: 20px 0;
+      padding: 20px;
+      box-shadow: inset 0 0 15px rgba(90, 129, 209, 0.1); /* Bayangan dalam */
+    }
+    .menu button {
+      border: none;
+      border-radius: 25px; /* Radius lebih besar */
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem; /* Ukuran font lebih besar */
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animasi hover berbeda */
+      user-select: none;
+      box-shadow: 0 4px 12px rgba(90, 129, 209, 0.3);
+      width: 100%; /* Lebar penuh */
+    }
+    .menu button:focus-visible {
+      outline-offset: 3px;
+      outline: 2px solid #2c539e;
+    }
+    .menu button:hover {
+      transform: translateY(-3px); /* Efek lift */
+      box-shadow: 0 6px 18px rgba(90, 129, 209, 0.4);
+    }
+    /* Warna pastel untuk tombol */
+    .btn-materi {
+      background-color: #AEC6CF; /* Pastel blue */
+    }
+    .btn-soal {
+      background-color: #C1E1C1; /* Pastel green */
+    }
+    .btn-simulator {
+      background-color: #D4A5F8; /* Pastel purple - berbeda dari sebelumnya */
+    }
+    /* Konten utama */
+    .content {
+      background: #ffffff;
+      border-radius: 20px;
+      margin: 0;
+      padding: 30px 25px;
+      box-shadow: 0 5px 20px rgba(74, 116, 217, 0.3);
+      color: #1a2e5b;
+      border-left: 5px solid #5a81d1; /* Border kiri untuk aksen */
+    }
+    .content h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin: 0 0 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #4a74d9;
+    }
+    .content h2 span {
+      font-size: 1.8rem;
+    }
+    .definition-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #d4e4f7 100%); /* Gradien berbeda */
+      border-radius: 16px;
+      padding: 20px 26px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c539e;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      box-shadow: inset 0 0 15px rgba(180, 215, 246, 0.5);
+      user-select: text;
+      white-space: pre-line;
+      font-family: 'Courier New', Courier, monospace;
+      border: 1px solid #b3d9ff; /* Border tipis */
+    }
+    /* Contoh barisan */
+    .example-barisan {
+      background: linear-gradient(135deg, #f0f8ff 0%, #e0f0ff 100%); /* Gradien berbeda */
+      padding: 20px 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(74, 116, 217, 0.3);
+      font-weight: 700;
+      font-size: 1.3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      user-select: none;
+      color: #4a74d9;
+      border: 1px solid #c7dbfc;
+    }
+    .example-barisan .box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 14px 24px;
+      min-width: 55px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(74, 116, 217, 0.4);
+      border: 2px solid #b3d9ff;
+    }
+    .example-barisan .arrow {
+      font-size: 1.4rem;
+      color: #4a74d9;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 480px) {
+      .menu button {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .content h2 {
+        font-size: 1.4rem;
+      }
+      .example-barisan {
+        font-size: 1.1rem;
+        gap: 15px;
+        flex-wrap: wrap; /* Wrap untuk layar kecil */
+      }
+      .example-barisan .box {
+        padding: 12px 18px;
+        min-width: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container" role="main" aria-label="Aplikasi pembelajaran barisan geometri SMK Muhammadiyah Loa Janan">
+    <header>
+      <h1>SMK Muhammadiyah Loa Janan</h1>
+      <p>Matematika - Barisan Geometri</p>
+    </header>
+
+    <nav class="menu" aria-label="Menu utama aplikasi">
+      <button class="btn-materi" aria-label="Menu Materi">
+        📚 Materi
+      </button>
+      <button class="btn-soal" aria-label="Menu Contoh Soal">
+        📝 Contoh Soal
+      </button>
+      <button class="btn-simulator" aria-label="Menu Simulator">
+        🎮 Simulator
+      </button>
+    </nav>
+
+    <section class="content" aria-labelledby="judul-rumus-barisan-geometri">
+      <h2 id="judul-rumus-barisan-geometri"><span>📐</span> Rumus Barisan Geometri</h2>
+
+      <div class="definition-box" aria-label="Rumus barisan geometri">
+        Un = a × rⁿ⁻¹<br><br>
+        Keterangan:<br>
+        Un = Suku ke-n<br>
+        a = Suku pertama<br>
+        r = Rasio atau perbandingan tetap antar suku<br>
+        n = Posisi suku ke-n
+      </div>
+
+      <div>
+        <h3 style="color:#4a74d9; margin-bottom:15px; font-weight:700;">📊 Contoh Barisan Geometri:</h3>
+        <div class="example-barisan" aria-label="Contoh barisan geometri">
+          <div class="box">3</div>
+          <div class="arrow">→ × 2 →</div>
+          <div class="box">6</div>
+          <div class="arrow">→ × 2 →</div>
+          <div class="box">12</div>
+          <div class="arrow">→ × 2 →</div>
+          <div class="box">24</div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>
